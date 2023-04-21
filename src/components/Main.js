@@ -1,19 +1,22 @@
-import React , { Component } from "react";
+import React, {useState} from "react";
 import "../styles/Main.css";
 import Weathers from "./Weathers";
 import YM from "./YM";
 import Cities from "./Cities";
 
-class Main extends Component {
-    render() {
-        return (
-            <main>
-                <Weathers/>
-                <Cities />
-                <YM />
-            </main>
-        );
-    }
+function Main() {
+    const [name, setName] = useState("default");
+    const handleNameChange = (name) => {
+       setName(name)
+    };
+    console.log(name)
+    return (
+        <main>
+            <Cities onChange={handleNameChange}/>
+            <Weathers name={name}/>
+            <YM />
+        </main>
+    );
 }
 
 export default Main;
