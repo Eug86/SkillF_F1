@@ -1,4 +1,5 @@
-tables.cities {
-    width: 70%;
-    margin: 0 auto;
+.form-select {
+  display: block;
+  width: 30%;
+  color: #3F92D2;
 }

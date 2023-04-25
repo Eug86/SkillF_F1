@@ -5,16 +5,16 @@ import YM from "./YM";
 import Cities from "./Cities";
 
 function Main() {
-    const [name, setName] = useState("default");
+    const [name, setName] = useState("Tyumen");
     const handleNameChange = (name) => {
        setName(name)
     };
-    console.log(name)
+
     return (
         <main>
             <Cities onChange={handleNameChange}/>
-            <Weathers name={name}/>
             <YM />
+            <Weathers name={name}/>
         </main>
     );
 }
