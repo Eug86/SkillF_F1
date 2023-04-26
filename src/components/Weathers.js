@@ -3,7 +3,7 @@ import React, {useState} from "react";
 import Table from "react-bootstrap/Table";
 
 
-function Weathers({name}, {weathers})  {
+function Weathers({name, weathers})  {
 
     return (
         <>
