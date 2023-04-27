@@ -1,6 +1,7 @@
 import React, {useState} from "react";
-//import axios from "axios";
 import Table from "react-bootstrap/Table";
+import Weather from "./Weather";
+import "../styles/Weathers.css";
 
 
 function Weathers({name, weathers})  {
@@ -8,15 +9,7 @@ function Weathers({name, weathers})  {
     return (
         <>
             <h1>{name}</h1>
-            <Table>
-                <thead><tr><th>Date</th><th>Temp</th></tr></thead>
-                <tbody>
-                    {weathers.map(weather =>
-                        <tr key={weather.main.dt}>
-                            <td>{weather.dt_txt}</td><td>{weather.main.temp}</td>
-                        </tr>)}
-                </tbody>
-            </Table>
+            {weathers.map(weather => <Weather key={weather.main.dt} weather={weather}/>)}
         </>
     );
 }

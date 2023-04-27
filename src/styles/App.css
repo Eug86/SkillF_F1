@@ -17,3 +17,10 @@ html, body {
     background-color: #FFC873;
     border-radius: 10px;
 }
+
+.weather {
+    width: 30%;
+    margin-bottom: 50px;
+    background: #f5f5f5;
+
+}
