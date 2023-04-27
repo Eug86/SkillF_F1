@@ -1,33 +1,30 @@
 import React, {useState} from "react";
 import "../styles/Main.css";
-//import Weathers from "./Weathers";
+import axios from "axios";
+import Weathers from "./Weathers";
 import YM from "./YM";
 import Cities from "./Cities";
-import axios from "axios";
-
 
 function Main() {
-    const [name, setName] = useState("Surgut");
-    const [WeaUrl, setWeaUrl] = useState("");
+    const [weathers, setWeathers] = useState([]);
+    const [name, setName] = useState("Moscow");
     const handleNameChange = (name) => {
        setName(name);
-       setWeaUrl(`http://api.openweathermap.org/data/2.5/forecast?q=${name},ru&APPID=fe4c586fd2c32a2e3e13d3ad079f4ea1&units=metric`);
-    };
-    const [weathers, setWeathers] = useState([]);
-    name.onChange = () => {
-        if(!weathers.length) {
+
+       if(!weathers.length) {
+            const WeaUrl = `http://api.openweathermap.org/data/2.5/forecast?q=${name},ru&APPID=fe4c586fd2c32a2e3e13d3ad079f4ea1&units=metric`;
             axios.get(WeaUrl).then(res => {
                 setWeathers(res.data.list);
-                console.log(res.data);
             });
-        }
-    }
+       }
+
+    };
 
     return (
         <main>
             <Cities onChange={handleNameChange}/>
             <YM />
-            <Weathers name={name} weathers={weathers}/>
+            <Weathers name={name} weathers={weathers} />
         </main>
     );
 }
